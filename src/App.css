@@ -1,0 +1,150 @@
+:root {
+  --count: 3;
+  --gap: 15px;
+}
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.common-gap {
+  padding-block: 40px;
+}
+img {
+  max-width: 100%;
+}
+.accordion-holder li {
+  list-style-type: none;
+}
+.accordion-holder li p:not(.active) {
+  display: none;
+}
+.accordion-holder li h1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.colorBox {
+  width: 100px;
+  height: 100px;
+  margin: 20px 0;
+  border: 1px solid #000;
+}
+.accordion-items {
+  margin: 50px;
+  padding: 0;
+}
+
+.accordion-items li {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.accordion-items li h1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.accordion-items li h1 span {
+  margin-left: auto;
+}
+
+.accordion-items p:not(.active) {
+  display: none;
+}
+
+.common-gap {
+  margin-block: 50px;
+}
+
+.todo-message-card {
+  background-color: #fff;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  padding: 30px;
+  max-width: 400px;
+  margin: 40px auto;
+}
+
+.todo-message-card input,
+.todo-message-card textarea {
+  width: 100%;
+  margin-bottom: 15px;
+  resize: none;
+}
+
+.btn-holder {
+  display: flex;
+  justify-content: space-between;
+}
+
+.todo-items-holder {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap);
+}
+
+.todo-items-holder > li {
+  list-style-type: none;
+  padding: 20px;
+  flex: 0 0 auto;
+  width: calc((100% / var(--count)) - (var(--gap) - (var(--gap) / var(--count))));
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+}
+
+button {
+  background-color: #37624d;
+  border-radius: 6px;
+  padding: 5px 15px;
+  border: 1px solid #37624d;
+  color: #fff;
+  transition: all 0.3s;
+}
+
+.reset {
+  background-color: #b12f2f;
+  border-color: #b12f2f;
+}
+
+.reset:hover {
+  color: #b12f2f;
+}
+
+button:hover {
+  background-color: transparent;
+  color: #37624d;
+}
