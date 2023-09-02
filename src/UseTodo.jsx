@@ -16,7 +16,7 @@ export default function UseTodo() {
       <ul className="todo-items-holder">
         <li className="todo-item">
           <h5>Title 1</h5>
-          <p>I am Subhomoy Pal. Currently I am working on Webskitters Technology.</p>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis, tenetur.</p>
           <button type="button" className="reset">
             Delete
           </button>

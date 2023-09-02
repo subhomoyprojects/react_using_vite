@@ -23,6 +23,16 @@ export default function Header() {
                   Reducer Todo
                 </Link>
               </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/listAddRemove">
+                  List Add Remove
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/listAddRemoveReducer">
+                  List Add Remove Reducer
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
