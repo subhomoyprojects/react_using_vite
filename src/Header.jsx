@@ -35,7 +35,7 @@ export default function Header() {
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to="/">
-                  New
+                  Login
                 </Link>
               </li>
             </ul>
