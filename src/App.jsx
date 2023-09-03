@@ -5,6 +5,7 @@ import UseTodo from "./UseTodo";
 import ReducerTodo from "./ReducerTodo";
 import ListAddRemove from "./ListAddRemove";
 import ListAddRemoveReducer from "./ListAddRemoveReducer";
+import NewTask from "./NewTask";
 
 function App() {
   return (
@@ -12,7 +13,8 @@ function App() {
       <Router>
         <Header />
         <Routes>
-          <Route path="/" element={<UseTodo />} />
+          <Route path="/" element={<NewTask />} />
+          <Route path="/useTodo" element={<UseTodo />} />
           <Route path="/reducerTodo" element={<ReducerTodo />} />
           <Route path="/listAddRemove" element={<ListAddRemove />} />
           <Route path="/listAddRemoveReducer" element={<ListAddRemoveReducer />} />

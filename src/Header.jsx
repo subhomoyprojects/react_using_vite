@@ -14,7 +14,7 @@ export default function Header() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link className="nav-link" to="/">
+                <Link className="nav-link" to="/useTodo">
                   Use State Todo
                 </Link>
               </li>
@@ -31,6 +31,11 @@ export default function Header() {
               <li className="nav-item">
                 <Link className="nav-link" to="/listAddRemoveReducer">
                   List Add Remove Reducer
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/">
+                  New
                 </Link>
               </li>
             </ul>
