@@ -10,20 +10,40 @@ export default function Login() {
   const [error, setError] = useState({});
 
   //  validation
+  // const validation = () => {
+  //   let error = {};
+
+  //   if (!state.email) {
+  //     error.email = "Email is Required";
+  //   } else if (!/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(state.email)) {
+  //     error.email = "Valid Email is Required";
+  //   }
+
+  //   if (!state.password) {
+  //     error.password = "Password is Required";
+  //   }
+
+  //   return error;
+  // };
   const validation = () => {
-    let error = {};
+    let errors = {};
 
     if (!state.email) {
-      error.email = "Email is Required";
-    } else if (!/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(state.email)) {
-      error.email = "Valid Email is Required";
+      errors.email = "Email is Required";
+    } else if (!isValidEmail(state.email)) {
+      errors.email = "Valid Email is Required";
     }
 
     if (!state.password) {
-      error.password = "Password is Required";
+      errors.password = "Password is Required";
     }
 
-    return error;
+    return errors;
+  };
+
+  const isValidEmail = (email) => {
+    // Use a regular expression pattern for email validation.
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   };
 
   const postUserData = (e) => {
