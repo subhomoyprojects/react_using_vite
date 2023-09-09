@@ -13,3 +13,5 @@
 400 errors indicate an invalid request, which means either that mandatory parameters are missing
 200 success
 500 error server
+
+useForm docs https://react-hook-form.com/docs/useform/register
