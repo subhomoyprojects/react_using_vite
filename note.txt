@@ -1,0 +1,15 @@
+ you can use to register your form inputs. This function
+//   // is used to tell the form how to handle specific input elements.
+
+//   // you will use as an event handler for when the form is submitted. It typically encapsulates
+//   // the logic that should run when the form is submitted.
+
+//   // you're further destructuring the errors property from formState. This allows you
+//   // to access and display validation errors for form inputs.
+
+// useForm custom hooks
+
+404 errors indicate that a requested API service cannot be found, or that a requested entity cannot be found.
+400 errors indicate an invalid request, which means either that mandatory parameters are missing
+200 success
+500 error server

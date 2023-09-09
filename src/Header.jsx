@@ -38,6 +38,16 @@ export default function Header() {
                   Login
                 </Link>
               </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/formValidation">
+                  Form Validation
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/reactValidation">
+                  React Validation
+                </Link>
+              </li>
             </ul>
           </div>
         </div>

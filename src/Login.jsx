@@ -1,9 +1,12 @@
 import { useState } from "react";
+import axios from "axios";
 
 export default function Login() {
   const [state, setState] = useState({
+    name: "",
     email: "",
-    password: "",
+    phone: "",
+    city: "",
   });
 
   // Error
@@ -33,9 +36,14 @@ export default function Login() {
     } else if (!isValidEmail(state.email)) {
       errors.email = "Valid Email is Required";
     }
-
-    if (!state.password) {
-      errors.password = "Password is Required";
+    if (!state.name) {
+      errors.name = "Name is Required";
+    }
+    if (!state.phone) {
+      errors.phone = "Phone is Required";
+    }
+    if (!state.city) {
+      errors.city = "City is Required";
     }
 
     return errors;
@@ -48,8 +56,6 @@ export default function Login() {
 
   const postUserData = (e) => {
     let { name, value } = e.target;
-    // name = e.target.name;
-    // value = e.target.value;
 
     if (name === "email") {
       if (value.length === 0) {
@@ -60,21 +66,51 @@ export default function Login() {
         setState({ ...state, email: value });
       }
     }
-
-    if (name === "password") {
+    if (name === "phone") {
       if (value.trim().length === 0) {
-        setError({ ...error, password: "Password name is Required" });
-        setState({ ...state, password: "" });
+        setError({ ...error, phone: "Phone number is Required" });
+        setState({ ...state, phone: "" });
       } else {
-        setError({ ...error, password: "" });
-        setState({ ...state, password: value });
+        setError({ ...error, phone: "" });
+        setState({ ...state, phone: value });
+      }
+    }
+    if (name === "name") {
+      if (value.trim().length === 0) {
+        setError({ ...error, name: "Name is Required" });
+        setState({ ...state, name: "" });
+      } else {
+        setError({ ...error, name: "" });
+        setState({ ...state, name: value });
+      }
+    }
+    if (name === "city") {
+      if (value.trim().length === 0) {
+        setError({ ...error, city: "City is Required" });
+        setState({ ...state, city: "" });
+      } else {
+        setError({ ...error, city: "" });
+        setState({ ...state, city: value });
       }
     }
   };
 
+  // const SubmitInfo = (e) => {
+  //   e.preventDefault();
+  //   setError(validation());
+  // };
   const SubmitInfo = (e) => {
     e.preventDefault();
     setError(validation());
+    const apiUrl = "https://tureappservar.onrender.com/user/";
+
+    const payload = {
+      name: state.name,
+      email: state.email,
+      phone: state.phone,
+      city: state.city,
+    };
+    axios.post(apiUrl, payload);
   };
 
   return (
@@ -104,14 +140,31 @@ export default function Login() {
                 <input type="email" onChange={postUserData} value={state.email} className="form-control" name="email" />
                 <span style={{ color: "red", marginLeft: "24px" }}> {error.email} </span>
               </div>
+
               <div className="mb-3">
                 <label htmlFor="exampleInputPassword1" className="form-label">
-                  Password
+                  Phone
                 </label>
-                <input onChange={postUserData} value={state.password} className="form-control" name="password" />
+                <input onChange={postUserData} value={state.phone} className="form-control" name="phone" />
+                <span style={{ color: "red", marginLeft: "24px" }}> {error.phone} </span>
+                <br />
+              </div>
 
-                <span style={{ color: "red", marginLeft: "24px" }}> {error.password} </span>
+              <div className="mb-3">
+                <label htmlFor="exampleInputPassword1" className="form-label">
+                  Name
+                </label>
+                <input onChange={postUserData} value={state.name} className="form-control" name="name" />
+                <span style={{ color: "red", marginLeft: "24px" }}> {error.name} </span>
+                <br />
+              </div>
 
+              <div className="mb-3">
+                <label htmlFor="exampleInputPassword1" className="form-label">
+                  City
+                </label>
+                <input onChange={postUserData} value={state.city} className="form-control" name="city" />
+                <span style={{ color: "red", marginLeft: "24px" }}> {error.city} </span>
                 <br />
               </div>
 
