@@ -45,7 +45,7 @@ export default function FormValidation() {
                 <TextField
                   {...register("email", {
                     required: true,
-                    pattern: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
+                    pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
                   })}
                   label="Your Email"
                   fullWidth
