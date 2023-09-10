@@ -80,16 +80,21 @@ export default function Login() {
   // };
   const SubmitInfo = (e) => {
     e.preventDefault();
-    setError(validation());
-    const apiUrl = "https://tureappservar.onrender.com/user/";
-    const { name, email, phone, city } = state;
-    const payload = {
-      name: name,
-      email: email,
-      phone: phone,
-      city: city,
-    };
-    axios.post(apiUrl, payload);
+    const validationErrors = validation();
+    setError(validationErrors);
+
+    if (Object.keys(validationErrors).length === 0) {
+      const apiUrl = "https://tureappservar.onrender.com/user/";
+      const { name, email, phone, city } = state;
+      const payload = {
+        name: name,
+        email: email,
+        phone: phone,
+        city: city,
+      };
+
+      axios.post(apiUrl, payload);
+    }
   };
 
   return (
