@@ -8,6 +8,7 @@ import ListAddRemoveReducer from "./ListAddRemoveReducer";
 import Login from "./Login";
 import FormValidation from "./FormValidation";
 import ReactValidation from "./ReactValidation";
+import NewFormValidation from "./NewFormValidation";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/listAddRemoveReducer" element={<ListAddRemoveReducer />} />
           <Route path="/formValidation" element={<FormValidation />} />
           <Route path="/reactValidation" element={<ReactValidation />} />
+          <Route path="/newFormValidation" element={<NewFormValidation />} />
         </Routes>
       </Router>
     </>

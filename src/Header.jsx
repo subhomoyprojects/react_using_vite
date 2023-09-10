@@ -48,6 +48,11 @@ export default function Header() {
                   React Validation
                 </Link>
               </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/newFormValidation">
+                  New Form Validation
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
