@@ -11,23 +11,6 @@ export default function Login() {
 
   // Error
   const [error, setError] = useState({});
-
-  //  validation
-  // const validation = () => {
-  //   let error = {};
-
-  //   if (!state.email) {
-  //     error.email = "Email is Required";
-  //   } else if (!/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(state.email)) {
-  //     error.email = "Valid Email is Required";
-  //   }
-
-  //   if (!state.password) {
-  //     error.password = "Password is Required";
-  //   }
-
-  //   return error;
-  // };
   const validation = () => {
     let errors = {};
 
@@ -60,38 +43,34 @@ export default function Login() {
     if (name === "email") {
       if (value.length === 0) {
         setError({ ...error, email: "Email is Required" });
-        setState({ ...state, email: "" });
       } else {
         setError({ ...error, email: "" });
-        setState({ ...state, email: value });
       }
+      setState({ ...state, email: value });
     }
     if (name === "phone") {
       if (value.trim().length === 0) {
         setError({ ...error, phone: "Phone number is Required" });
-        setState({ ...state, phone: "" });
       } else {
         setError({ ...error, phone: "" });
-        setState({ ...state, phone: value });
       }
+      setState({ ...state, phone: value });
     }
     if (name === "name") {
       if (value.trim().length === 0) {
         setError({ ...error, name: "Name is Required" });
-        setState({ ...state, name: "" });
       } else {
         setError({ ...error, name: "" });
-        setState({ ...state, name: value });
       }
+      setState({ ...state, name: value });
     }
     if (name === "city") {
       if (value.trim().length === 0) {
         setError({ ...error, city: "City is Required" });
-        setState({ ...state, city: "" });
       } else {
         setError({ ...error, city: "" });
-        setState({ ...state, city: value });
       }
+      setState({ ...state, city: value });
     }
   };
 
@@ -103,12 +82,12 @@ export default function Login() {
     e.preventDefault();
     setError(validation());
     const apiUrl = "https://tureappservar.onrender.com/user/";
-
+    const { name, email, phone, city } = state;
     const payload = {
-      name: state.name,
-      email: state.email,
-      phone: state.phone,
-      city: state.city,
+      name: name,
+      email: email,
+      phone: phone,
+      city: city,
     };
     axios.post(apiUrl, payload);
   };
